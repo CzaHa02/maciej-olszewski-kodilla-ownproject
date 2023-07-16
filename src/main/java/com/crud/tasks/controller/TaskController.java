@@ -36,7 +36,7 @@ public class TaskController {
     @DeleteMapping(value = "{taskId}")
     public ResponseEntity<TaskDto> deleteTask(@PathVariable Long taskId) {
         service.deleteTask(taskId);
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.ok().build();
 
     }
     @PutMapping
