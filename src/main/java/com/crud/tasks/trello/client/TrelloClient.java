@@ -8,6 +8,7 @@ import com.crud.tasks.trello.config.TrelloConfig;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
@@ -15,6 +16,8 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.transaction.Transactional;
 import java.net.URI;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -22,9 +25,11 @@ import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
+@Transactional
 public class TrelloClient {
 
     private final RestTemplate restTemplate;
+
     private final TrelloConfig trelloConfig;
     private static final Logger LOGGER = LoggerFactory.getLogger(TrelloClient.class);
 

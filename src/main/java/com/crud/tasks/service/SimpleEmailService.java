@@ -3,18 +3,28 @@ package com.crud.tasks.service;
 import com.crud.tasks.domain.Mail;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 
 @Slf4j
     @Service
     @RequiredArgsConstructor
+@Transactional
     public class SimpleEmailService {
 
+
         private final JavaMailSender javaMailSender;
+
+
 
         public void send(final Mail mail) {
             log.info("Starting email preparation...");
