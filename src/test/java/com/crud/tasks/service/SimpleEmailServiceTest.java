@@ -14,7 +14,7 @@ import static org.mockito.Mockito.verify;
 class SimpleEmailServiceTest {
 
     @InjectMocks
-    private SimpleEmailService simpleEmailService;
+    private SimpleMailService simpleEmailService;
 
     @Mock
     private JavaMailSender javaMailSender;
