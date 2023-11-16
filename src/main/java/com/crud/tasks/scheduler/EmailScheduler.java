@@ -24,7 +24,7 @@ public class EmailScheduler {
         long size = taskRepository.count();
 
         String tasks ="tasks";
-        if(size==1){tasks.replace("tasks", "task");}
+        if(size==1){tasks= tasks.replace("tasks", "task");}
 
 
         simpleEmailService.send(
